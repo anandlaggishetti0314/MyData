@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-
 class ForGotWidget extends StatefulWidget {
   const ForGotWidget({super.key});
-
   @override
   State<ForGotWidget> createState() => _ForGotWidgetState();
 }
-
 class _ForGotWidgetState extends State<ForGotWidget> {
   @override
   Widget build(BuildContext context) {
@@ -53,7 +50,6 @@ class _ForGotWidgetState extends State<ForGotWidget> {
     ));
   }
 }
-
 Widget buildText(String text) {
   return Align(
     alignment: Alignment.topLeft,
