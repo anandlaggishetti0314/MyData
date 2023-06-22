@@ -10,11 +10,13 @@ class ForGotWidget extends StatefulWidget {
 class _ForGotWidgetState extends State<ForGotWidget> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Center(
       child: Container(
-        width: 350,
-        height: 300,
+        width: screenWidth * 0.4,
+        height: screenHeight * 0.4,
         child: Column(
           children: [
             RichText(
@@ -24,7 +26,9 @@ class _ForGotWidgetState extends State<ForGotWidget> {
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
                       color: Colors.black,
-                    ))),
+                    ),
+                    ),
+                    ),
             SizedBox(
               height: 50,
             ),
@@ -38,15 +42,15 @@ class _ForGotWidgetState extends State<ForGotWidget> {
             SizedBox(
               height: 50,
             ),
-            Center(child: ElevatedButton(onPressed: forgot, child: Text('submit'),))
+            Center(
+                child: ElevatedButton(
+              onPressed: () {},
+              child: Text('submit'),
+            ))
           ],
         ),
       ),
     ));
-  }
-  void forgot()
-  {
-
   }
 }
 
