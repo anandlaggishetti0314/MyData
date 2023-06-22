@@ -15,20 +15,25 @@ class _LoginwidgetState extends State<Loginwidget> {
   final formfiled = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
   bool passToggle = true;
   bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Row(
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: Row(
           children: [
             Container(
-              
-              child: Image(
-                image: AssetImage("images/Background.png"),
+              child: const Image(
+                image:  AssetImage("images/Background.png"),
+              ),
+            ),
+            const Flexible(
+              child: FractionallySizedBox(
+                heightFactor: 0.3,
               ),
             ),
             Expanded(
@@ -36,16 +41,14 @@ class _LoginwidgetState extends State<Loginwidget> {
                 padding: const EdgeInsets.all(50.0),
                 child: Container(
                     child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Image.asset('images/Template.png'),
-                    SizedBox(
-                      height: 10,
+                    const SizedBox(
+                      height: 20,
                     ),
                     Container(
                       child: RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           text: 'Manage Insurance',
                           style: TextStyle(
                               fontWeight: FontWeight.normal, fontSize: 22),
@@ -58,7 +61,7 @@ class _LoginwidgetState extends State<Loginwidget> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                   const  SizedBox(
                       height: 20,
                     ),
                     buildText('Email'),
@@ -67,7 +70,7 @@ class _LoginwidgetState extends State<Loginwidget> {
                       child: TextFormField(
                         controller: emailController,
                         decoration: const InputDecoration(
-                          label: Text('Enter the Email'),
+                          label: Text('Enter Email'),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10),
@@ -82,7 +85,7 @@ class _LoginwidgetState extends State<Loginwidget> {
                                   r"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")
                               .hasMatch(value);
                           if (!emailValidator) {
-                            return "Enter valid email";
+                            return "Enter valid Email";
                           }
                         },
                       ),
@@ -95,7 +98,6 @@ class _LoginwidgetState extends State<Loginwidget> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
                         controller: passwordController,
-                        // obscureText: passToggle,
                         decoration: InputDecoration(
                             label: const Text('Enter password'),
                             suffixIcon: InkWell(
@@ -108,7 +110,6 @@ class _LoginwidgetState extends State<Loginwidget> {
                                   ? Icons.visibility
                                   : Icons.visibility_off),
                             ),
-                            //   prefixIcon: const Icon(Icons.password),
                             border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10)))),
@@ -121,7 +122,7 @@ class _LoginwidgetState extends State<Loginwidget> {
                         },
                       ),
                     ),
-                    SizedBox(
+                   const  SizedBox(
                       height: 20,
                     ),
                     InkWell(
@@ -135,7 +136,7 @@ class _LoginwidgetState extends State<Loginwidget> {
                           decoration: BoxDecoration(
                               color: Colors.blue,
                               borderRadius: BorderRadius.circular(10)),
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               'Log in',
                               style: TextStyle(
@@ -177,7 +178,6 @@ class _LoginwidgetState extends State<Loginwidget> {
       'email': emailController.text,
       'password': passwordController.text,
     };
-
     try {
       final response = await http.post(
         url,
@@ -200,7 +200,7 @@ class _LoginwidgetState extends State<Loginwidget> {
       alignment: Alignment.topLeft,
       child: Text(
         text,
-        style: TextStyle(
+        style:const TextStyle(
           fontWeight: FontWeight.normal,
           fontSize: 15,
         ),
