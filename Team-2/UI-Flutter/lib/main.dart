@@ -1,22 +1,21 @@
+import 'package:deals_task/deals.dart';
 import 'package:flutter/material.dart';
-import 'package:insurenceproject/Dashboard.dart';
 
 void main() {
-  runApp(const myapp());
+  runApp(const MyApp());
 }
 
-// ignore: camel_case_types
-class myapp extends StatelessWidget {
-  const myapp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Statless Widget',
-      home: Scaffold(
-        body: Dashboard(),
-      ),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(),
+      home: dealTable(),
+
     );
   }
 }
