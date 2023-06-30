@@ -1,0 +1,34 @@
+type Mutation{
+insert(data:ClaimsDataInput):String
+deleteClaimsData(id: ID):String
+editClaimsData(id:ID!, data:ClaimsData):String 
+}
+ type Query{
+viewAll:[ClaimsData]
+ dataGetById (id:Int):ClaimsData
+ }
+ 
+ type ClaimsData{ 
+	sNo : ID! 
+	key: Integer 
+	excelValue:Integer
+	type:Integer
+	tpa:Integer
+	
+	}
+	
+	input ClaimsDataInput{
+	key: Integer 
+	excelValue:Integer
+	type:Integer
+	tpa:Integer
+	}
+	
+	
+	input ClaimsData{
+	sNo : ID! 
+	key: Integer 
+	excelValue:Integer
+	type:Integer
+	tpa:Integer
+	}
